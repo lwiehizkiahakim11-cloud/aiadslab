@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AdsPilot AI — ruang kerja campaign, performance, profit, dan strategi iklan berbasis Hermes Agent.">
+  <title>AdsPilot AI — Performance & Campaign Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><span></span><span></span><span></span></div>
+        <div>
+          <strong>AdsPilot AI</strong>
+          <small>Command Center</small>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navigasi utama">
+        <button class="nav-item active" data-route="dashboard"><span>⌂</span><div><b>Overview</b><small>Ringkasan performa</small></div></button>
+        <button class="nav-item" data-route="campaign"><span>✦</span><div><b>Campaign Studio</b><small>Strategi, setup & creative</small></div></button>
+        <button class="nav-item" data-route="importcsv"><span>▤</span><div><b>Performance Hub</b><small>Data, histori & insight</small></div></button>
+        <button class="nav-item" data-route="calculator"><span>◈</span><div><b>Profit Planner</b><small>Margin & budget aman</small></div></button>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="dot-live"></div>
+        <div><strong>Hermes Agent</strong><small>Server-side • Netlify Function</small></div>
+        <span class="live-label" id="hermesSidebarStatus">SETUP</span>
+      </div>
+
+      <div class="sidebar-bottom">
+        <button class="nav-item" data-route="settings"><span>⚙</span><div><b>Settings</b><small>API & platform</small></div></button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">ADS PILOT WORKSPACE</p>
+          <h1 id="pageTitle">Overview</h1>
+        </div>
+        <div class="topbar-actions">
+          <div class="status-pill"><span></span> Workspace aktif</div>
+          <button class="avatar">LH</button>
+        </div>
+      </header>
+
+      <section id="dashboard" class="page active-page">
+        <div class="hero-gradient">
+          <div>
+            <span class="tag tag-purple">✦ AI Executive Summary</span>
+            <h2 id="dashboardHeadline">Mulai dari data bisnis Anda, bukan tebakan.</h2>
+            <p id="dashboardSummary">Import laporan iklan atau buat campaign baru. AdsPilot membantu menghubungkan data, profit, dan keputusan dalam satu alur.</p>
+            <button class="primary-btn" data-route="campaign">Mulai dari Produk <span>→</span></button>
+          </div>
+          <div class="hero-orb orb-a"></div><div class="hero-orb orb-b"></div><div class="hero-grid"></div>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-card accent-cyan"><small>GMV / Conversion Value</small><strong id="mGmv">—</strong><span class="trend neutral">Menunggu impor CSV</span></div>
+          <div class="metric-card accent-violet"><small>Ad Spend</small><strong id="mSpend">—</strong><span class="trend neutral">Belum ada data</span></div>
+          <div class="metric-card accent-pink"><small>ROAS</small><strong id="mRoas">—</strong><span class="trend neutral">GMV ÷ Ad Spend</span></div>
+          <div class="metric-card accent-lime"><small>Estimasi Profit</small><strong id="mProfit">Butuh HPP</strong><span class="trend neutral">Butuh HPP + data order per produk</span></div>
+        </div>
+
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head"><div><span class="panel-kicker">DECISION BOARD</span><h3>Prioritas AI hari ini</h3></div><span class="soft-chip">Action board</span></div>
+            <div id="decisionList" class="decision-list"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><div><span class="panel-kicker">QUICK START</span><h3>Jalankan tanpa banyak berpikir</h3></div></div>
+            <div class="quick-grid">
+              <button data-route="campaign" class="quick-card"><span class="quick-icon cyan">＋</span><b>Campaign baru</b><small>Produk → target laba → strategi</small></button>
+              <button data-route="calculator" class="quick-card"><span class="quick-icon violet">₿</span><b>Hitung budget</b><small>Temukan batas iklan aman</small></button>
+              <button data-route="analysis" class="quick-card"><span class="quick-icon orange">✦</span><b>Smart Analysis</b><small>Temukan penyebab ROAS turun</small></button>
+              <button data-route="creative" class="quick-card"><span class="quick-icon pink">✎</span><b>Creative Lab</b><small>Buat hook dan angle untuk diuji</small></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="campaign" class="page">
+        <div class="section-intro"><div><span class="tag tag-cyan">CAMPAIGN STUDIO</span><h2>Satu brief. Satu strategi yang siap dijalankan.</h2><p>Mulai dari produk dan target laba. Strategi, budget, audience, dan creative dirangkum dalam satu workspace.</p></div><div class="flow-mini"><span>Produk</span><b>→</b><span>Profit</span><b>→</b><span>AI Strategy</span><b>→</b><span>Budget</span></div></div>
+        <div class="work-tabs" role="tablist" aria-label="Campaign Studio">
+          <button class="work-tab active" data-campaign-view="brief" role="tab" aria-selected="true"><span>01</span> Brief & tujuan</button>
+          <button class="work-tab" data-campaign-view="adsmanager" role="tab" aria-selected="false"><span>02</span> Setup platform</button>
+          <button class="work-tab" data-campaign-view="creative" role="tab" aria-selected="false"><span>03</span> Creative Lab</button>
+        </div>
+        <div id="campaignBriefView" class="work-view active">
+        <div class="two-col campaign-grid">
+          <div class="panel form-panel">
+            <div class="panel-head"><div><span class="panel-kicker">STEP 01</span><h3>Data produk & bisnis</h3></div></div>
+            <div class="form-grid">
+              <label>Nama produk<input id="productName" placeholder="Contoh: Acne Care Serum" value=""></label>
+              <label>Platform<select id="platform"><option value="tiktok">TikTok Ads / TikTok Shop</option><option value="meta">Meta Ads (Facebook + Instagram)</option><option value="shopee">Shopee Ads</option><option value="shopee_gmv">Shopee GMV Max</option><option value="cross">Meta + TikTok</option></select></label>
+              <label>Harga jual / unit<input id="productPrice" inputmode="numeric" value=""></label>
+              <label>HPP / modal / unit<input id="productHpp" inputmode="numeric" value=""></label>
+              <label>Target laba bersih<input id="targetProfit" inputmode="numeric" value=""></label>
+              <label>Target order / hari<input id="targetOrders" type="number" min="1" value="" placeholder="Opsional"></label>
+              <label>Budget maksimal / hari<input id="manualBudget" inputmode="numeric" value=""></label>
+              <label>URL produk / referensi<input id="productUrl" placeholder="https://..." value=""></label>
+              <label class="span-2">Pain point pelanggan<textarea id="painPoints" rows="3" placeholder="Contoh: jerawat aktif, takut breakout, ingin skincare simpel"></textarea></label>
+              <label class="span-2">Deskripsi singkat produk<textarea id="productDesc" rows="3" placeholder="Apa yang dijual, keunggulan utama, promo, bukti sosial, dll."></textarea></label>
+            </div>
+            <div class="form-foot"><label class="switch-row"><input type="checkbox" id="useHistory" checked><span>Gunakan previous campaign sebagai referensi</span></label><button class="primary-btn" id="generateCampaignBtn">✦ Buat Strategi AI</button></div>
+          </div>
+
+          <div class="panel result-panel">
+            <div class="panel-head"><div><span class="panel-kicker">AI PLAN</span><h3 id="campaignResultTitle">Belum ada strategi</h3></div><span id="campaignBadge" class="status-badge waiting">Menunggu input</span></div>
+            <div id="campaignResult" class="empty-state"><div class="empty-emoji">🧠</div><h4>AI akan menyusun seluruh keputusan</h4><p>Target audience, pain point, angle, budget, CPA, ROAS, keyword, dan action plan akan muncul di sini.</p></div>
+          </div>
+        </div>
+      </div>
+
+
+      
+<div id="adsmanager" class="work-view hidden">
+
+
+        <div class="platform-tabs">
+          <button class="platform-tab active" data-ad-platform="meta">Meta Ads Manager <small>Facebook + Instagram</small></button>
+          <button class="platform-tab" data-ad-platform="tiktok">TikTok Ads Manager <small>Campaign + Ad Group + Ad</small></button>
+        </div>
+
+        <div class="platform-setup-grid">
+          <div class="panel form-panel">
+            <div class="panel-head"><div><span class="panel-kicker">PLATFORM BLUEPRINT</span><h3 id="adSetupTitle">Meta Ads Manager</h3></div><span id="adSetupStatus" class="status-badge waiting">Draft</span></div>
+            <div class="setup-banner" id="adSetupHint"><b>Meta:</b> gunakan satu campaign untuk tujuan utama, lalu atur audience/budget/optimization di Ad Set dan creative di Ad.</div>
+            <div class="form-grid">
+              <label>Nama campaign<input id="adCampaignName" value="" placeholder="Nama produk • Conversion • Test 01"></label>
+              <label>Objective<select id="adObjective"><option value="SALES">Sales / Penjualan</option><option value="LEADS">Leads</option><option value="TRAFFIC">Traffic</option><option value="ENGAGEMENT">Engagement</option><option value="AWARENESS">Awareness</option></select></label>
+              <label>Buying type<select id="adBuyingType"><option value="AUCTION">Auction</option><option value="RESERVATION">Reservation</option></select></label>
+              <label>Total budget / hari<input id="adBudget" inputmode="numeric" value=""></label>
+              <label>Audience utama<input id="adAudience" value="" placeholder="Audience atau problem utama"></label>
+              <label>Placements<select id="adPlacements"><option value="AUTO">Automatic / Advantage+ placements</option><option value="MANUAL">Manual placements</option></select></label>
+              <label>Optimization goal<input id="adOptimization" value="Purchase"></label>
+              <label>Bid strategy<select id="adBidStrategy"><option value="LOWEST_COST">Lowest cost</option><option value="COST_CAP">Cost cap / target cost</option><option value="BID_CAP">Bid cap</option></select></label>
+              <label>Ad Set / Ad Group name<input id="adGroupName" value="" placeholder="Produk • Broad • Indonesia"></label>
+              <label>Creative format<select id="adFormat"><option value="VIDEO">Short video</option><option value="IMAGE">Single image</option><option value="CAROUSEL">Carousel</option></select></label>
+              <label class="span-2">Primary copy / caption<textarea id="adCopy" rows="3" placeholder="Isi manual atau klik ‘Isi dengan AI’ untuk membuat draft caption"></textarea></label>
+              <label>CTA<select id="adCta"><option>Shop Now</option><option>Learn More</option><option>Send Message</option><option>Sign Up</option></select></label>
+              <label>Destination URL<input id="adDestination" value="" placeholder="https://..."></label>
+              <label class="span-2">Creative reference / asset URL<textarea id="adCreativeRef" rows="2" placeholder="URL video/gambar atau catatan asset. Jangan masukkan API key."></textarea></label>
+              <div id="metaAssetFields" class="span-2 asset-fields">
+                <div class="asset-title">Meta asset</div>
+                <div class="form-grid nested-grid">
+                  <label>Ad Account ID <span class="optional">opsional</span><input id="metaAdAccount" placeholder="Isi manual jika sudah tahu"></label>
+                  <label>Facebook Page ID<input id="metaPageId" placeholder="Contoh: 1234567890"></label>
+                  <label>Pixel ID<input id="metaPixelId" placeholder="Wajib untuk Sales / conversion"></label>
+                  <label>Image Hash<input id="metaImageHash" placeholder="Hash image dari Meta Ad Account"></label>
+                  <label>Video ID<input id="metaVideoId" placeholder="Video ID untuk creative video"></label>
+                  <label>Instagram actor ID <span class="optional">opsional</span><input id="metaInstagramActorId" placeholder="IG actor ID"></label>
+                </div>
+              </div>
+              <div id="tiktokAssetFields" class="span-2 asset-fields hidden">
+                <div class="asset-title">TikTok asset</div>
+                <div class="form-grid nested-grid">
+                  <label>Advertiser ID <span class="optional">opsional</span><input id="tiktokAdvertiser" placeholder="Isi manual jika sudah tahu"></label>
+                  <label>Identity ID<input id="tiktokIdentityId" placeholder="Identity ID untuk iklan"></label>
+                  <label>Pixel ID<input id="tiktokPixelId" placeholder="Wajib untuk Web Conversion"></label>
+                  <label>Video ID<input id="tiktokVideoId" placeholder="Video asset ID"></label>
+                  <label>Image ID <span class="optional">opsional</span><input id="tiktokImageId" placeholder="Image asset ID"></label>
+                  <label>Optimization event<input id="tiktokOptimizationEvent" value="COMPLETE_PAYMENT" placeholder="Contoh: COMPLETE_PAYMENT"></label>
+                </div>
+              </div>
+            </div>
+            <div class="form-foot setup-actions">
+              <div class="setup-checks"><span>✓ Unit economics</span><span>✓ Audience</span><span>✓ Budget</span><span>✓ Creative</span></div>
+              <div class="button-row"><button class="secondary-btn" id="aiFillAdsBtn">✦ Isi dengan AI</button><button class="secondary-btn" id="validateAdsBtn">Validate</button><button class="primary-btn" id="exportSetupBtn">Download Setup JSON</button></div>
+            </div>
+          </div>
+
+          <div class="panel result-panel">
+            <div class="panel-head"><div><span class="panel-kicker">REVIEW & EXPORT</span><h3>Campaign blueprint</h3></div><span id="payloadPlatformBadge" class="soft-chip">Meta</span></div>
+            <div id="adsValidation" class="validation-card"><b>Belum divalidasi</b><p>Lengkapi setup lalu klik Validate untuk membuat setup JSON.</p></div>
+            <div class="payload-summary" id="payloadSummary">
+              <div><small>Campaign</small><b id="sumCampaign">—</b></div>
+              <div><small>Ad Set / Group</small><b id="sumGroup">—</b></div>
+              <div><small>Budget</small><b id="sumBudget">Rp 0/hari</b></div>
+              <div><small>Objective</small><b id="sumObjective">—</b></div>
+            </div>
+            <div class="json-panel"><div class="json-head"><span>SETUP JSON PREVIEW</span><button class="mini-btn" id="copyPayloadBtn">Copy JSON</button></div><pre id="apiPayload">{
+  "platform": "meta",
+  "status": "draft"
+}</pre></div>
+            <div class="note-box"><b>Mode CSV-first:</b> data performa masuk lewat CSV. Tombol di atas mengunduh rencana setup untuk referensi; tombol ini tidak membuat atau mengubah iklan di Meta/TikTok. Pembuatan iklan masih dilakukan di Ads Manager masing-masing.</div>
+            <div id="createResult" class="create-result hidden"></div>
+          </div>
+        </div>
+
+      </div>
+
+      
+<div id="creative" class="work-view hidden">
+        <div class="section-intro"><div><span class="tag tag-pink">CREATIVE LAB</span><h2>Buat variasi kreatif yang punya tujuan jelas.</h2><p>Gunakan brief campaign sebagai konteks, lalu generate hook, angle, format, dan CTA untuk diuji.</p></div><button class="secondary-btn" id="runCreativeBtn">✦ Generate 5 Creative</button></div>
+        <div class="creative-toolbar"><input id="creativeProduct" value="" placeholder="Nama produk"><select id="creativeGoal"><option>Naikkan CTR</option><option>Naikkan Conversion</option><option>Launch produk</option><option>Retargeting</option></select><input id="creativeAudience" placeholder="Target audience, contoh: wanita 18–34 dengan acne concern"></div>
+        <div id="creativeResult" class="creative-grid"></div>
+      </div>
+
+      
+      </section>
+
+<section id="importcsv" class="page">
+        <div class="section-intro"><div><span class="tag tag-cyan">PERFORMANCE HUB</span><h2>Satu tempat untuk data, histori, dan keputusan.</h2><p>Impor laporan dari platform iklan, bandingkan campaign, lalu minta AI menunjukkan langkah berikutnya.</p></div><div class="flow-mini"><span>Export CSV</span><b>→</b><span>Upload</span><b>→</b><span>Auto-map</span><b>→</b><span>AI Analysis</span></div></div>
+        <div class="work-tabs performance-tabs" role="tablist" aria-label="Performance Hub">
+          <button class="work-tab active" data-performance-view="import" role="tab" aria-selected="true"><span>01</span> Import data</button>
+          <button class="work-tab" data-performance-view="results" role="tab" aria-selected="false"><span>02</span> Campaign history</button>
+          <button class="work-tab" data-performance-view="analysis" role="tab" aria-selected="false"><span>03</span> Smart Analysis</button>
+        </div>
+        <div id="performanceImportView" class="performance-view active">
+        <div class="csv-banner"><div class="csv-banner-icon">📄</div><div><b>Tidak perlu OAuth, App ID, atau API platform.</b><p>File diproses langsung di browser Anda. Saat Smart Analysis dijalankan, ringkasan metrik campaign dikirim melalui Netlify Function ke server Hermes Anda. CSV mentah tidak dikirim; hanya ringkasan yang diperlukan untuk analisis.</p></div></div>
+        <div class="two-col csv-layout">
+          <div class="panel">
+            <div class="panel-head"><div><span class="panel-kicker">STEP 01</span><h3>Upload laporan iklan</h3></div><span class="soft-chip">CSV / REPORT</span></div>
+            <div class="form-grid">
+              <label>Asal laporan<select id="csvPlatform"><option value="meta">Meta Ads Manager</option><option value="tiktok">TikTok Ads Manager</option><option value="shopee">Shopee Ads</option><option value="custom">CSV standar / lainnya</option></select><small class="field-hint">Pilih platform untuk memberi label data. Header kolom akan dipetakan otomatis.</small></label>
+              <label>File laporan (.csv)<input id="csvFiles" type="file" accept=".csv,text/csv,application/csv" multiple><small class="field-hint">Unggah satu atau beberapa file dari platform yang sama. Maksimum 10 MB per file.</small></label>
+              <label class="span-2 csv-check"><input id="csvReplacePlatform" type="checkbox" checked><span><b>Ganti data lama untuk platform ini</b><small>Mencegah data dobel saat impor ulang. Jika mengunggah beberapa file platform yang sama, pastikan rentang tanggalnya tidak tumpang tindih. Platform lain tetap tersimpan.</small></span></label>
+            </div>
+            <div class="button-row csv-actions"><button class="primary-btn" id="importCsvBtn">⇧ Import & baca laporan</button><button class="secondary-btn" id="clearCsvBtn">Hapus data impor</button></div>
+            <div id="csvImportStatus" class="csv-status" aria-live="polite"><b>Belum ada file yang diimpor.</b><p>Pilih platform dan unggah CSV laporan performa iklan.</p></div>
+            <div class="template-actions"><b>CSV contoh / template</b><div class="button-row"><a class="secondary-btn" href="templates/meta_ads_report_template.csv" download>Meta CSV</a><a class="secondary-btn" href="templates/tiktok_ads_report_template.csv" download>TikTok CSV</a><a class="secondary-btn" href="templates/standard_ads_report_template.csv" download>Template standar</a></div><small>Template ini untuk menguji import atau merapikan data manual. Untuk data nyata, lebih baik unggah file ekspor asli dari Ads Manager.</small></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><div><span class="panel-kicker">STEP 02</span><h3>Panduan ekspor</h3></div></div>
+            <div class="export-guide"><div class="export-step meta-guide"><span class="export-logo">M</span><div><b>Meta Ads Manager</b><ol><li>Buka Ads Manager dan pilih rentang tanggal.</li><li>Di Columns, pilih metrik Campaign, Amount spent, Impressions, Link clicks, CTR, Purchases, Purchase conversion value dan ROAS bila tersedia.</li><li>Klik Export / Download table data, lalu pilih CSV.</li></ol></div></div><div class="export-step tiktok-guide"><span class="export-logo">TT</span><div><b>TikTok Ads Manager</b><ol><li>Buka Analytics → Custom reports.</li><li>Tambahkan dimensi Campaign name dan metrik Spend, Impressions, Clicks, CTR, Complete payment/Purchases, Value, serta ROAS bila tersedia.</li><li>Klik Run & Export, lalu pilih CSV.</li></ol></div></div><div class="note-box"><b>Penting:</b> gunakan laporan performa (report), bukan CSV bulk-import untuk membuat iklan. Nama kolom berbeda antar-akun dan bahasa; jika ada kolom yang tak dikenali, gunakan template standar atau periksa hasil pemetaan di bawah.</div></div>
+          </div>
+        </div>
+        </div>
+        <div id="performanceResultsView" class="performance-view hidden">
+        <div class="metric-grid csv-metrics">
+          <div class="metric-card accent-cyan"><small>Campaign terbaca</small><strong id="csvCampaignCount">0</strong><span>Setelah digabung per campaign</span></div>
+          <div class="metric-card accent-violet"><small>Total Ad Spend</small><strong id="csvSpendTotal">Rp 0</strong><span>Akumulasi file yang diimpor</span></div>
+          <div class="metric-card accent-pink"><small>Total GMV / Conversion Value</small><strong id="csvGmvTotal">Rp 0</strong><span>Sesuai kolom nilai transaksi di laporan</span></div>
+          <div class="metric-card accent-lime"><small>ROAS gabungan</small><strong id="csvRoasTotal">—</strong><span>GMV ÷ Ad Spend</span></div>
+        </div>
+        <div class="panel csv-preview-panel">
+          <div class="panel-head"><div><span class="panel-kicker">IMPORTED CAMPAIGNS</span><h3>Ringkasan campaign terimpor</h3></div><div class="button-row csv-preview-actions"><span id="csvImportedLabel" class="soft-chip">Belum ada impor</span><button class="secondary-btn small" id="exportImportedCsvBtn" disabled>Ekspor ringkasan</button></div></div>
+          <div class="table-wrap"><table class="csv-table"><thead><tr><th>Platform</th><th>Campaign</th><th>Spend</th><th>Conversion value</th><th>Orders</th><th>ROAS</th><th>CPA</th><th>CTR</th><th>CVR</th></tr></thead><tbody id="csvPreviewTable"><tr><td colspan="9" class="csv-empty">Impor CSV untuk melihat hasil pemetaan kolom.</td></tr></tbody></table></div>
+          <p id="csvMappingNote" class="micro-note">Pemetaan akan menampilkan kolom penting yang dikenali, jumlah baris valid, dan kolom yang belum tersedia. Data tanpa angka tidak akan direkayasa.</p>
+        </div>
+              </div>
+
+
+      <div id="performanceAnalysisView" class="performance-view hidden">
+        <div class="section-intro"><div><span class="tag tag-purple">SMART ANALYSIS</span><h2>Ubah data menjadi keputusan yang jelas.</h2><p>Hermes membaca ringkasan data impor untuk menemukan peluang scale, campaign yang perlu diperbaiki, dan metrik yang masih kurang.</p></div><button class="primary-btn" id="runSmartAnalysisBtn">✦ Analisis dengan Hermes</button></div>
+        <div class="two-col analysis-layout">
+          <div class="panel"><div class="panel-head"><div><span class="panel-kicker">AI DIAGNOSIS</span><h3>What happened → Why → What next</h3></div><span id="analysisBadge" class="status-badge waiting">Belum dianalisis</span></div><div id="analysisResult" class="analysis-result empty-state"><div class="empty-emoji">✦</div><h4>Insight menunggu data</h4><p>Import laporan terlebih dahulu, lalu jalankan analisis untuk mendapatkan diagnosis dan action plan yang spesifik.</p></div></div>
+          <div class="panel analysis-framework"><div class="panel-head"><div><span class="panel-kicker">CARA AI BERPIKIR</span><h3>Diagnosis yang bisa ditindaklanjuti</h3></div></div><div class="analysis-step"><span>01</span><div><b>Performance</b><small>Temukan metrik yang naik, turun, atau tidak tersedia.</small></div></div><div class="analysis-step"><span>02</span><div><b>Cause</b><small>Bedakan masalah creative, traffic, conversion, dan economics.</small></div></div><div class="analysis-step"><span>03</span><div><b>Next action</b><small>Prioritaskan eksperimen dan perubahan berdasarkan impact dan risiko.</small></div></div><div class="note-box">AI tidak akan menyimpulkan profit aktual jika data HPP dan biaya terkait belum tersedia.</div></div>
+        </div>
+      </div>
+      </section>
+
+<section id="calculator" class="page">
+        <div class="section-intro"><div><span class="tag tag-orange">PROFIT ENGINE</span><h2>Tentukan batas iklan sebelum menentukan budget.</h2><p>Satu kalkulator untuk margin, biaya marketplace, batas CPA, target ROAS, dan rekomendasi budget.</p></div></div>
+        <div class="calc-layout">
+          <div class="panel">
+            <div class="panel-head"><div><span class="panel-kicker">PROFIT PLANNER</span><h3>Unit economics</h3></div><button class="secondary-btn small" id="syncProductToCalcBtn">↻ Sync dari Campaign Studio</button></div>
+            <div class="form-grid">
+              <label>Platform<select id="calcPlatform"><option value="tiktok">TikTok Shop</option><option value="shopee">Shopee</option></select></label>
+              <label>Harga jual / unit<input id="calcPrice" inputmode="numeric" value=""></label>
+              <label>HPP / unit<input id="calcHpp" inputmode="numeric" value=""></label>
+              <label>Diskon/voucher seller (%)<input id="calcDiscount" type="number" step="0.1" value="0"></label>
+              <label>Target margin bersih (%)<input id="calcMargin" type="number" step="0.1" value="20"><small class="field-hint">20% adalah nilai awal simulasi, bukan standar untuk semua bisnis.</small></label>
+              <label>Target order / hari<input id="calcOrders" type="number" min="1" value="1"></label>
+            </div>
+            <div class="fee-box">
+              <div class="fee-head"><b>Biaya platform & operasional</b><span>Atur sesuai Seller Centre</span></div>
+              <div class="fee-grid">
+                <label>Admin platform (%)<input id="feeAdmin" type="number" step="0.01" value="5"></label>
+                <label>Affiliate (%)<input id="feeAffiliate" type="number" step="0.01" value="10"></label>
+                <label>Program / campaign (%)<input id="feeProgram" type="number" step="0.01" value="0"></label>
+                <label>Pajak (%)<input id="feeTax" type="number" step="0.01" value="0.5"></label>
+                <label>Operasional / unit<input id="feeOperational" inputmode="numeric" value="1000"></label>
+                <label>Risk retur / unit<input id="feeReturn" inputmode="numeric" value="1000"></label>
+                <label>Biaya proses / order<input id="feeFixed" inputmode="numeric" value="0"></label>
+                <label>Biaya packing / incentive (%)<input id="feePacking" type="number" step="0.01" value="1"></label>
+              </div>
+              <p class="micro-note">Default di sini hanyalah preset simulasi. Tarif aktual dapat berbeda berdasarkan kategori, status seller, program, basis fee, cap, atau periode. Gunakan Seller Centre sebagai angka final.</p>
+            </div>
+            <button class="primary-btn full" id="calculateBtn">Hitung profit & budget</button>
+          </div>
+
+          <div class="calc-results">
+            <div class="profit-hero">
+              <div><span>MAX SAFE AD COST / ORDER</span><strong id="maxCpa">Rp 0</strong><small id="maxCpaHint">Masukkan angka untuk menghitung.</small></div>
+              <div class="big-status" id="profitScore">—</div>
+            </div>
+            <div class="metric-grid compact">
+              <div class="metric-card accent-lime"><small>Target profit / order</small><strong id="profitPerOrder">Rp 0</strong><span>Setelah biaya non-ads</span></div>
+              <div class="metric-card accent-violet"><small>Target ROAS</small><strong id="targetRoas">0x</strong><span>Untuk target profit</span></div>
+              <div class="metric-card accent-cyan"><small>Break-even ROAS*</small><strong id="breakEvenRoas">0x</strong><span>*batas accounting</span></div>
+              <div class="metric-card accent-pink"><small>Budget / hari</small><strong id="recommendedBudget">Rp 0</strong><span id="budgetHint">Target order × safe CPA</span></div>
+            </div>
+            <button class="secondary-btn full use-budget-btn" id="useRecommendedBudgetBtn">Gunakan budget ini di Campaign Studio →</button>
+            <div class="panel scenario-panel"><div class="panel-head"><div><span class="panel-kicker">SCENARIO</span><h3>Jalankan dengan tiga level risiko</h3></div></div><div id="scenarioTable" class="scenario-table"></div></div>
+            <div class="panel"><div class="panel-head"><div><span class="panel-kicker">VERDICT</span><h3 id="calcVerdict">Belum dihitung</h3></div></div><div id="calcAdvice" class="advice-box">AI akan lebih akurat setelah Anda punya data historis, tetapi mesin unit economics ini tetap dapat menghitung batas aman sebelum uang dibelanjakan.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="settings" class="page">
+        <div class="section-intro"><div><span class="tag tag-cyan">SETTINGS</span><h2>Pengaturan AI dan biaya default.</h2><p>Hermes dipanggil melalui Netlify Function. URL dan token koneksi disimpan sebagai environment variable server-side.</p></div></div>
+        <div class="two-col">
+          <div class="panel"><div class="panel-head"><div><span class="panel-kicker">HERMES AGENT</span><h3>Koneksi AI</h3></div><span id="hermesStatusBadge" class="status-badge warn" aria-live="polite">Perlu konfigurasi</span></div><div class="settings-list"><div><b>Model</b><span>HERMES_MODEL (default: hermes-agent)</span></div><div><b>Endpoint website</b><span>/api/ai</span></div><div><b>Endpoint agent</b><span>HERMES_API_URL</span></div><div><b>Token server</b><span>HERMES_API_KEY • server-side</span></div><div><b>Output</b><span>JSON terstruktur</span></div></div><button id="testAiBtn2" class="primary-btn full">Test koneksi Hermes</button><p class="hint">Status baru terkonfirmasi setelah tombol tes dijalankan.</p></div>
+          <div class="panel"><div class="panel-head"><div><span class="panel-kicker">PLATFORM PRESETS</span><h3>Preset biaya</h3></div></div><div class="note-box">Preset biaya di Profit Engine bersifat editable dan bukan sumber tarif final. Sesuaikan berdasarkan informasi pembayaran dan Seller Centre akun Anda.</div><div class="preset-list"><button class="preset" data-preset="tiktok"><b>TikTok Shop</b><small>Komisi platform + affiliate + program + pajak</small></button><button class="preset" data-preset="shopee"><b>Shopee</b><small>Admin + proses + program + pajak</small></button></div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="toast" class="toast"></div>
+  <div id="modal" class="modal hidden"><div class="modal-card"><button id="closeModal" class="modal-close">×</button><div id="modalContent"></div></div></div>
+  <script src="app.js"></script>
+</body>
+</html>

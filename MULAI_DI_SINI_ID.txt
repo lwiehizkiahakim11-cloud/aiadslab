@@ -1,0 +1,22 @@
+ADS PILOT AI + HERMES — MULAI DI SINI
+
+1. Ekstrak folder project ini, lalu push ke repository GitHub.
+2. Import repository ke Netlify.
+3. Siapkan Hermes Agent di server/host yang selalu aktif dan pastikan API Server dapat dijangkau lewat HTTPS reverse proxy yang diautentikasi.
+4. Di Netlify → Site configuration → Environment variables, isi:
+   HERMES_API_URL=https://hermes.domain-anda.com/v1
+   HERMES_API_KEY=secret-yang-sama-dengan-API_SERVER_KEY
+   HERMES_MODEL=hermes-agent
+   HERMES_TIMEOUT_MS=50000
+   SITE_ORIGIN=https://website-adspilot-anda.netlify.app
+5. Redeploy website.
+6. Buka Settings → Test koneksi Hermes.
+7. Import CSV di Performance Hub → jalankan Smart Analysis.
+
+PENTING:
+- Hermes harus berjalan online. URL localhost komputer Anda tidak bisa diakses oleh Netlify.
+- Jangan taruh token Hermes di index.html atau app.js.
+- Buat server/profile khusus AdsPilot dan matikan tool berisiko (terminal/file/browser/code execution) bila tidak diperlukan.
+- Sebelum menjual SaaS, tambahkan login, pemisahan data pelanggan, rate limit dan batas kuota AI.
+
+Petunjuk lengkap: docs/HERMES_SETUP_ID.md
